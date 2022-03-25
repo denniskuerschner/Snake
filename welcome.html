@@ -22,6 +22,7 @@
     <button onclick="document.location='easy.html'"> Easy </button>
     <button onclick="document.location='index.html'"> Normal </button>
     <button onclick="document.location='difficult.html'"> Difficult </button>
+    <button onclick="document.location='test.html'"> Test </button>
 </ol>
    
 
@@ -32,7 +33,7 @@
     
 
     <script>
-        let canvas = document.getElementById('canvas');
+       let canvas = document.getElementById('canvas');
         let ctx = canvas.getContext('2d');
         let username;
 
@@ -48,17 +49,18 @@
             ctx.fillText('WELCOME TO', 90, 140);  
             ctx.fillText('SNAKE!', 160, 200); 
             //wenn Start-Button gedrückt wird, dann soll Spielfeld ausgegeben werden
-        }    
+}    
 
         //usernameInput();
 
         function usernameInput() {
-            username = document.getElementById("text1").value;
-            alert("Nice to meet you " + username + "!");
+        username = document.getElementById("text1").value;
+        alert("Nice to meet you " + username + "!");
 
-            //JS Vererbung, um Username an andere Files weiterzugeben?
-         
+        //JS Vererbung, um Username an andere Files weiterzugeben?
+ 
 }
     </script>
+    <script src="test.js"></script>
 </body>
 </html>
