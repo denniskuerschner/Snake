@@ -1,3 +1,14 @@
+<!--
+
+I guess this is your first page, so it would be better to rename this html file to index.html
+and change the current index.html to something else.
+
+Reason: Generally the resource named index.* will be picked if no file is specified. So it would
+make sense to use the welcome page as index.
+-->
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,10 +27,37 @@
         Choose your name!
     </li> 
     <input id="text1" placeholder="Enter your name">
+    <!--
+    Since you will need this username at any page, you can use cookies to store this info.
+    And the all other pages you can retrieve the value of the username cookie. You can also
+    store the high score as cookie, so that even when the user returns after closing the
+    browser, you can still get the score (cookies will be cleared in incognito/private mode or
+    the user explicitly clears the cookie.)
+
+    Browsers also support other kinds of storage which you can use instead of cookies. Try those
+    too and adapt the one which makes sense to you.
+
+    Another way is to use query  param, but you wont be able to store anything. instead you can
+    just pass around in your scenario. The best place for you is to use a single game.html page
+    for all three difficulty levels and then use query param to select the difficulty level.
+
+    Eg:
+    <button onclick="document.location='game.html?difficulty=easy'"> Easy </button>
+    <button onclick="document.location='game.html?difficulty=normal'"> Normal </button>
+    <button onclick="document.location='game.html?difficulty=difficult'"> Difficult </button>
+
+    And in game.html get he query param value and use it in the game difficult algorithm.
+    This way you won't have to have 3 different pages, just one.
+
+    -->
     <button onclick="usernameInput()"> Save your name </button> 
     <li> 
         Choose your difficulty!
     </li>
+
+    <!--
+    What
+    -->
     <button onclick="document.location='easy.html'"> Easy </button>
     <button onclick="document.location='index.html'"> Normal </button>
     <button onclick="document.location='difficult.html'"> Difficult </button>
