@@ -32,18 +32,30 @@
         let applebite = new Audio('apple-bite-sound-effect.mp3');
         let highscore = 0;
 
-        let difficulty;
-        
 
         placeFood();
 
-        if(difficulty === 'normal'){
+        speed();
+
+        function speed(){
+            var url_string = (window.location.href).toLowerCase();      //Query Parameter / Query String     //https://mrvirk.com/get-url-parameter-values-in-javascript.html
+            var url = new URL(url_string);
+            var difficulty = url.searchParams.get("difficulty");
+
+            if(difficulty === 'easy'){
+            setInterval(gameLoop, 300);
+            }  
+
+            if(difficulty === 'normal'){
             setInterval(gameLoop, 200);
+            }   
+
+            if(difficulty === 'difficult'){
+            setInterval(gameLoop, 100);
+            }  
         }
-            
-        //200 normal
-        //300 easy
-        //100 difficult
+        
+        
         document.addEventListener('keydown', keyDown);
         
 
