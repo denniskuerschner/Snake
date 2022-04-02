@@ -14,8 +14,9 @@
     <li>
         Choose your name!
     </li> 
-    <input id="text1" placeholder="Enter your name">
-    <button onclick="setCookieUsername()"> Save your name </button> 
+    <input id="username" placeholder="Enter your name">
+    <button onclick="showCookies()">Show cookies</button>
+    <button onclick="clearOutputCookies()">Clear</button>
     <li> 
         Choose your difficulty!
     </li>
@@ -23,7 +24,15 @@
     <button onclick="document.location='normal.html'"> Normal </button>
     <button onclick="document.location='difficult.html'"> Difficult </button>
     <button onclick="document.location='test.html'"> Test </button>
+
 </ol>
+
+    
+    
+
+    <div>
+        <code id="cookies"></code>
+    </div>
    
 
    <!--<a href="default.asp">HTML tutorial</a>-->
@@ -33,7 +42,7 @@
     
 
     <script>
-       let canvas = document.getElementById('canvas');
+        let canvas = document.getElementById('canvas');
         let ctx = canvas.getContext('2d');
         //let username;
 
@@ -50,15 +59,21 @@
             ctx.fillText('SNAKE!', 160, 200); 
             //wenn Start-Button gedrückt wird, dann soll Spielfeld ausgegeben werden
 }    
+       
+        
 
-        //usernameInput();
+        function showCookies() {
+            document.cookie = "name=oeschger; SameSite=None; Secure";
+            document.cookie = "favorite_food=tripe; SameSite=None; Secure";
+            document.cookie = document.getElementById("username").value;
 
-        function setCookieUsername() {
-            //window.alert(navigator.cookieEnabled);    Test ob Cookies aktiviert sind
+            const output = document.getElementById('cookies')
+            output.textContent = '> ' + document.cookie
+        }
 
-            username = document.getElementById("text1").value;
-            //alert("Nice to meet you " + username + "!");        
-
+        function clearOutputCookies() {
+            const output = document.getElementById('cookies')
+            output.textContent = ''
         }
 
        
