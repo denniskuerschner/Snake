@@ -25,6 +25,8 @@
     <button onclick="document.location='difficult.html'"> Difficult </button>
     <button onclick="document.location='test.html'"> Test </button>
 
+    <button onclick="document.location='game.html?difficulty=normal'"> Game </button>
+
 </ol>
 
     
@@ -68,12 +70,13 @@
             document.cookie = document.getElementById("username").value;
 
             const output = document.getElementById('cookies')
-            output.textContent = '> ' + document.cookie
+            output.textContent = '> ' + document.cookie;
         }
 
         function clearOutputCookies() {
             const output = document.getElementById('cookies')
             output.textContent = ''
+            alert(document.location);
         }
 
        
