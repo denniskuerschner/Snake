@@ -41,11 +41,21 @@
         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="document.location='game.html?difficulty=easy'"> Easy </button>
         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="document.location='game.html?difficulty=normal'"> Normal </button>
         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="document.location='game.html?difficulty=difficult'"> Difficult </button>
-       
+        <br><br>
+
        <li>
            In developement...!       <!--for testing purposes-->
        </li>
         <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="document.location='test.html'"> Test </button>
+        <br><br>
+
+        <li>
+            Would you like to hear a Random Cat Fact?
+            <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" onclick="randomCatFact(); return false;">SURE</button>
+            <p id="header"></p>
+        </li>
+            
+        
            
     </ol>
 
@@ -84,11 +94,26 @@
         function showCookies() {
             document.cookie = "name=oeschger; SameSite=None; Secure";
             document.cookie = "favorite_food=tripe; SameSite=None; Secure";
-            document.cookie = document.getElementById("username").value;
+            document.cookie = document.getElementById("username").value + "=; expires=Thu, 01 Jan 2030 12:00:00 UTC";
 
             const output = document.getElementById('cookies')
             output.textContent = '> ' + document.cookie;
-        }      
+        }
+        
+        async function randomCatFact(){
+            try {
+                let response = await fetch('https://catfact.ninja/fact');       //Code won't be continued unless the fetch is loaded
+                let result = await response.json();
+            
+                const header = document.getElementById("header");
+                header.innerHTML = ">" + result.fact;                           //set content of id to ...
+                console.log(result);                                            //to see the attributes of the API-object 
+            } catch(e) {
+                console.log('Ein Fehler ist aufgeteten', e)
+            }                                
+        }
+
+        //randomCatFact();
         
 
     </script>
